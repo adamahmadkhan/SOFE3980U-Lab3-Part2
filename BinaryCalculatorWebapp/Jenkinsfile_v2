@@ -61,7 +61,7 @@ pipeline {
                         // set the credential for gcloud and kubectl within the container
                         sh 'gcloud auth activate-service-account --key-file $SERVICE_ACCOUNT'
                         sh 'gcloud config set project $PROJECT'
-                        sh 'gcloud container clusters get-credentials $CLUSTER --region=$CLUSTER_ZONE'
+                        sh 'gcloud container clusters get-credentials $CLUSTER --zone=$CLUSTER_ZONE'
                         script{
                             try{
                                 // delete it if a previous deployment exists
@@ -85,7 +85,7 @@ pipeline {
                         // set the credential for gcloud and kubectl within the container
                         sh 'gcloud auth activate-service-account --key-file $SERVICE_ACCOUNT'
                         sh 'gcloud config set project $PROJECT'
-                        sh 'gcloud container clusters get-credentials $CLUSTER --region=$CLUSTER_ZONE'
+                        sh 'gcloud container clusters get-credentials $CLUSTER --zone=$CLUSTER_ZONE'
                         script{
                             try{
                                 // create if it the service doesn't exist. No need to recreate it
